@@ -4,13 +4,13 @@ import sys
 HOME = os.getenv("XDG_CONFIG_HOME", os.getenv("HOME"))
 
 def create_link(source: str, to: str):
-    os.symlink(os.path.abspath(source), HOME.join(f"/{to}"))
+    os.symlink(os.path.abspath(source), f"{HOME}/{to}")
 
 def remove_link(to: str):
-    if os.path.islink(HOME.join(f"{to}")):
-        os.unlink(HOME.join(f"{to}"))
+    if os.path.islink(f"{HOME}/{to}"):
+        os.unlink(f"{HOME}/{to}")
     else:
-        print(f"cannot unlink nonexistant link: {HOME.join(f"{to}")}")
+        print(f"cannot unlink nonexistant link: {HOME}/{to}")
 
 if __name__ == '__main__':
     print(HOME)
@@ -21,4 +21,6 @@ if __name__ == '__main__':
         "zed/settings.json": ".config/zed/settings.json"
     }
 
+    for key in links:
+        print(f"{HOME}/{key}")
     sys.exit()
