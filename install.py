@@ -1,5 +1,6 @@
 import os
 import sys
+import argparse
 
 HOME = os.getenv("XDG_CONFIG_HOME", os.getenv("HOME"))
 
@@ -16,6 +17,8 @@ def remove_link(to: str):
         print(f"cannot unlink nonexistant link: {to}")
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-u", "--uninstall", type=bool, default=False, required=False)
     
     ## create links
     create_link("wezterm/.wezterm.lua", f"{HOME}/.wezterm.lua")
