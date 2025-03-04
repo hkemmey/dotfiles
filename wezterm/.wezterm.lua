@@ -61,4 +61,11 @@ config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
 config.colors = dracula_colors
 
+local handle = io.popen("echo $HOME")
+local home_dir = handle:read("*l")
+handle:close()
+
+config.window_background_image = string.format("%s/.dotfiles/public/eevee_background.jpg", home_dir)
+
+config.window_background_opacity = 0.85
 return config
