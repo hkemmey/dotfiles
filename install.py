@@ -29,11 +29,15 @@ if __name__ == '__main__':
         remove_link(f"{HOME}/.wezterm.lua")
         remove_link(f"{HOME}/.config/zed/keymap.json")
         remove_link(f"{HOME}/.config/zed/settings.json")
+        remove_link(f"{HOME}/.config/nvim/init.lua")
+        remove_link(f"{HOME}/.config/nvim/lua/")
     else:
         ## create links
         create_link("wezterm/.wezterm.lua", f"{HOME}/.wezterm.lua")
         create_link("zed/keymap.json", f"{HOME}/.config/zed/keymap.json")
         create_link("zed/settings.json", f"{HOME}/.config/zed/settings.json")
+        create_link("nvim/init.lua", f"{HOME}/.config/nvim/init.lua")
+        create_link("nvim/lua/", f"{HOME}/.config/nvim/lua/")
 
     ## exits
     sys.exit()
